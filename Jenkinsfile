@@ -1,24 +1,26 @@
 pipeline {
     agent any
+
     stages {
         stage('checkout code') {
             steps {
-                git 'https://github.com/Alihassan6442700/my_first_pipeline'
+                echo 'Checking out source code...'
+                // Declarative pipeline handles SCM checkout automatically
             }
         }
         stage('build') {
             steps {
-                sh 'echo "building the application"'
+                echo 'Building application...'
             }
         }
         stage('test') {
             steps {
-                sh 'echo "running tests"'
+                echo 'Running unit tests...'
             }
         }
         stage('deploy') {
             steps {
-                sh 'echo "deploying"'
+                echo 'Deploying application...'
             }
         }
     }
