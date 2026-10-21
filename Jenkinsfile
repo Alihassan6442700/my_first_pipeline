@@ -5,7 +5,6 @@ pipeline {
         stage('checkout code') {
             steps {
                 echo 'Checking out source code...'
-                // Declarative pipeline handles SCM checkout automatically
             }
         }
         stage('build') {
@@ -24,13 +23,13 @@ pipeline {
             }
         }
     }
-}
- post{
-    success{
-        bat'echo"build successfull"'
-    }
-    failure[
-        bat'echo"failed"'
-        }
-}
 
+    post {
+        success {
+            sh 'echo "build successful"'
+        }
+        failure {
+            sh 'echo "failed"'
+        }
+    }
+}
